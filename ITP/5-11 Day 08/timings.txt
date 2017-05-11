@@ -1,0 +1,3 @@
+10 items - too fast to time
+100 items - too fast to time
+1000 items - 41s
