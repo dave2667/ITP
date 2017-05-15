@@ -8,19 +8,17 @@
         // Because we're using a random generator,
         //   import the java.util package
 import java.util.*;
+// import java.util.*;
 
 public class BubbleSortRandom {
     public static void main(String[] args) {
 
 
-        int[] items = new int[100];
-        Random generator = new Random();
+        int[] items = new int[1000000];
         boolean swapped = true;
 
-        // Initialize the integer array with arguments passed in
-        for(int index=0; index<items.length; index++) {
-        	items[index]=generator.nextInt(5000);
-        }
+        // Initialize the integer array with random numbers
+        items=seedBubble(items);
         // Print the array before sorting
         printArray(items);
         // Repeat sorting passes until no more elements are moved
@@ -31,8 +29,8 @@ public class BubbleSortRandom {
                 int indexRight = indexLeft + 1;
                 if (items[indexLeft] > items[indexRight]) {
                 	/* Print the 'swap' line */
-                	printSwap(indexLeft, indexRight, items[indexLeft],
-                		items[indexRight]);
+                	/*printSwap(indexLeft, indexRight, items[indexLeft],
+                		items[indexRight]); */
                 	//Hold on to the left value temporarily
                     int itemsTempLeft = items[indexLeft];
                     //Swap left for right and right for left
@@ -67,4 +65,15 @@ public class BubbleSortRandom {
         	               "items[" + ndx2 + "]=" + valRight +
         	               " Swapped!");
     } // End of printSwap
+    /* Method to return a populated integer array.  Array is populated with 
+       random integers */
+    public static int[] seedBubble(int[] item) {
+	    Random generator = new Random();
+    	// Initialize the integer array with arguments passed in
+	    for(int index=0; index<item.length; index++) {
+    		item[index]=generator.nextInt(100);
+        	}
+        return item;	
+
+    } // End of seedBubble  
 }
